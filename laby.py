@@ -19,7 +19,6 @@ def look():
     print (" estoy mirando uevon")
 
 def mur_attention():
-    print (" estoy ")
     if look() != [blanco,blanco,blanco]:
         visto = True
 
