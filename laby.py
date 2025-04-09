@@ -31,14 +31,14 @@ def mur_attention():
     global visto
     if look() != [WHITE,WHITE,WHITE]:
         print("Achtung")
-        motor_stop(Motor.ALL)
-        sleep(100)
-        motor_run(Motor.RIGHT,0,FORWARD)
-        motor_run(Motor.LEFT,speed, FORWARD)
+        #motor_stop(Motor.ALL)
+        sleep(10)
+        motor_run(Motor.RIGHT,0,BACKWARD)
+        motor_run(Motor.LEFT,30, FORWARD)
 
-def En_avant_vers_le_bout_du_monde():
+def En_avant_vers_le_bout_du_monde():  
     mur_attention()
-    sleep(500)
+    sleep(600)
     motor_run(Motor.LEFT,speed,FORWARD)
     motor_run(Motor.RIGHT,speed,FORWARD)
      
@@ -49,7 +49,7 @@ led_rgb(rgb(255,255,255))
 while True:
     if Init:
         # Vitesse maximale des moteurs
-        speed:int = 20   
+        speed:int = 25   
         speed_slow:int = 12 
         Init = False
     
