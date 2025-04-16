@@ -1,3 +1,7 @@
+'''🇪 🇱  🇬 🇦 🇹 🇴  🇨 🇴 🇳  🇧 🇴 🇹 🇦 🇸
+code de marque le crabe et alex_lamourtardededijon
+labyrinthe maqueen'''
+
 from maqueen import *
 from microbit import *
 import utime
@@ -21,7 +25,7 @@ final = False
 visto = False
 #def motor_run(motor: int, speed: int, dir: int = Direction.FORWARD):
 
-
+#test premiere strat
 '''def look():
     print ([line_sensor(LineSensor.L1),line_sensor(LineSensor.M),line_sensor(LineSensor.R1)])
     return [line_sensor(LineSensor.L1),line_sensor(LineSensor.M),line_sensor(LineSensor.R1)]'''
@@ -41,10 +45,10 @@ visto = False
     sleep(600)
     motor_run(Motor.LEFT,speed,FORWARD)
     motor_run(Motor.RIGHT,speed,FORWARD)'''
-    
+# deuxieme strat suivre le mur sur la gauche, MÉLENCHON!    
 def mira_las_paredes():
     print ([line_sensor(LineSensor.L2),line_sensor(LineSensor.L1),line_sensor(LineSensor.M),line_sensor(LineSensor.R1),line_sensor(LineSensor.R2)])
-    return [line_sensor(LineSensor.L2),line_sensor(LineSensor.M)]
+    return [line_sensor(LineSensor.L2),line_sensor(LineSensor.L1)]
 
 def direction_en_espagnol():
     mira = mira_las_paredes()
@@ -63,7 +67,7 @@ def direction_en_espagnol():
         sleep(300)
     sleep(100)
 
-#MAMA GUEVO on est là biloute
+#MAMA GUEVO = DANGER
     
 led_rgb(rgb(255,255,255))
 
@@ -81,8 +85,8 @@ led_rgb(rgb(255,255,255))
 while True:
     if Init:
         # Vitesse maximale des moteurs
-        speed:int = 40   
-        speed_slow:int = 10
+        speed:int = 30   
+        speed_slow:int = 8
         Init = False
     direction_en_espagnol()
     sleep(10)
