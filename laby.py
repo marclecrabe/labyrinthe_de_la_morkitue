@@ -1,10 +1,12 @@
 '''🇪 🇱  🇬 🇦 🇹 🇴  🇨 🇴 🇳  🇧 🇴 🇹 🇦 🇸
-code de marque le crabe et alex_lamourtardededijon
+code de marque_le_crabe et alex_lamourtardededijon
 labyrinthe maqueen'''
 
-from maqueen import *
+from maprincess import *
 from microbit import *
 import utime
+#from el_proto_del_minigato import *
+
 
 '''
    /''''^''''\
@@ -25,26 +27,7 @@ final = False
 visto = False
 #def motor_run(motor: int, speed: int, dir: int = Direction.FORWARD):
 
-#test premiere strat
-'''def look():
-    print ([line_sensor(LineSensor.L1),line_sensor(LineSensor.M),line_sensor(LineSensor.R1)])
-    return [line_sensor(LineSensor.L1),line_sensor(LineSensor.M),line_sensor(LineSensor.R1)]'''
-
-
-'''def mur_attention():
-    global visto
-    if look() != [WHITE,WHITE,WHITE]:
-        print("Achtung")
-        #motor_stop(Motor.ALL)
-        sleep(10)
-        motor_run(Motor.RIGHT,0,BACKWARD)
-        motor_run(Motor.LEFT,30, FORWARD)'''
-
-'''def En_avant_vers_le_bout_du_monde():  
-    mur_attention()
-    sleep(600)
-    motor_run(Motor.LEFT,speed,FORWARD)
-    motor_run(Motor.RIGHT,speed,FORWARD)'''
+#test premiere stra
 # deuxieme strat suivre le mur sur la gauche, MÉLENCHON!    
 def mira_las_paredes():
     print ([line_sensor(LineSensor.L2),line_sensor(LineSensor.L1),line_sensor(LineSensor.M),line_sensor(LineSensor.R1),line_sensor(LineSensor.R2)])
@@ -58,36 +41,27 @@ def direction_en_espagnol():
         motor_run(Motor.RIGHT,speed,FORWARD)
     elif mira == [BLACK,WHITE]:
         motor_run(Motor.LEFT,speed,FORWARD)
-        motor_run(Motor.RIGHT,speed,FORWARD)
+        motor_run(Motor.RIGHT,speed-moins,FORWARD)
     elif mira == [WHITE,BLACK]:
         print("mama guevo")
     elif mira == [BLACK,BLACK]:
         motor_run(Motor.RIGHT,speed,BACKWARD)
         motor_run(Motor.LEFT,speed, FORWARD)
-        sleep(300)
-    sleep(100)
-
+        sleep(face)
+    sleep(lapse)
 #MAMA GUEVO = DANGER
-    
 led_rgb(rgb(255,255,255))
 
-'''while True:
-    if Init:
-        # Vitesse maximale des moteurs
-        speed:int = 25   
-        speed_slow:int = 12 
-        Init = False
-    
-    En_avant_vers_le_bout_du_monde()
-    sleep(10)'''
-
+face = 1
+lapse = 1
+dodo = 1
 
 while True:
     if Init:
         # Vitesse maximale des moteurs
-        speed:int = 30   
-        speed_slow:int = 8
+        speed:int = 80
+        speed_slow:int = 14
+        moins=sp
         Init = False
     direction_en_espagnol()
-    sleep(10)
-    
+    sleep(dodo)
