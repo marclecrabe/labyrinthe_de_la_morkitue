@@ -5,7 +5,7 @@ labyrinthe maqueen'''
 from maprincess import *
 from microbit import *
 import utime
-#from el_proto_del_minigato import *
+# from el_proto_del_minigato import *
 
 
 '''
@@ -21,6 +21,8 @@ WHITE = 0
 BLACK = 1
 BACKWARD = 1
 FORWARD = 0
+userId = 12
+destId = 20
 # Variable globale
 Init = True
 final = False
@@ -37,31 +39,57 @@ def direction_en_espagnol():
     mira = mira_las_paredes()
     print(mira)
     if mira == [WHITE,WHITE]:
-        motor_run(Motor.LEFT,speed_slow,BACKWARD)
-        motor_run(Motor.RIGHT,speed,FORWARD)
+        motor_run(Motor.LEFT,speed_slow,BACKWARD) #speed_slow,BACKWARD
+        motor_run(Motor.RIGHT,speed,FORWARD)#speed,FORWARD
     elif mira == [BLACK,WHITE]:
-        motor_run(Motor.LEFT,speed,FORWARD)
-        motor_run(Motor.RIGHT,speed-moins,FORWARD)
+        motor_run(Motor.LEFT,speed,FORWARD)#speed,FORWARD
+        motor_run(Motor.RIGHT,speed,FORWARD)#speed,FORWARD
     elif mira == [WHITE,BLACK]:
         print("mama guevo")
     elif mira == [BLACK,BLACK]:
-        motor_run(Motor.RIGHT,speed,BACKWARD)
-        motor_run(Motor.LEFT,speed, FORWARD)
+        motor_run(Motor.RIGHT,speed,BACKWARD)#speed,BACKWARD
+        motor_run(Motor.LEFT,speed, FORWARD)#speed, FORWARD
         sleep(face)
     sleep(lapse)
+    
+def das_ende():
+  #  sleep(dodo)
+    u = ultrasonic()
+    if u < 5 :
+        u = ultrasonic()
+  #      sleep(5)
+        if u < 3 :
+            print(u)
+            motor_stop()
+            payload = [69] 
+            send_msg(73,payload,userId, destId)
+            '''m = receive_msg(userId)
+            if m and m.msgId==73 and len(m.payload) == 1:
+                if m.payload[0]:
+            the reciever of memories'''
+            while True :
+                print("bite")
+                sleep(100)
+                
+# def apres_l_effort_cest_les_renforts ():
 #MAMA GUEVO = DANGER
 led_rgb(rgb(255,255,255))
 
-face = 1
+face = 5
 lapse = 1
-dodo = 1
+# dodo = 1
 
 while True:
     if Init:
         # Vitesse maximale des moteurs
-        speed:int = 80
-        speed_slow:int = 14
-        moins=sp
+        speed:int = 100
+        speed_slow:int = 5
         Init = False
     direction_en_espagnol()
-    sleep(dodo)
+#     sleep(dodo)
+#   das_ende()
+
+    
+    ''' rest a faire
+- portocole (lllamar amigos)
+- la bandera de Spain'''
