@@ -20,8 +20,9 @@ WHITE = 0
 BLACK = 1
 BACKWARD = 1
 FORWARD = 0
-userId = 12
-destId = 20
+'''userId = 12
+destId = 20'''
+
 # Variable globale
 Init = True
 final = False
@@ -32,17 +33,23 @@ def mira_las_paredes():
     return [line_sensor(LineSensor.L2),line_sensor(LineSensor.L1),line_sensor(LineSensor.M),line_sensor(LineSensor.R1),line_sensor(LineSensor.R2)]
 
 def direction_en_espagnol():
-    if mira_las_paredes()[3] == BLACK:
-        motor_run(Motor.RIGHT,speed_ff,BACKWARD)
-        motor_run(Motor.LEFT,speed_ff, FORWARD)
-    elif mira_las_paredes()[2] == BLACK:
-        motor_run(Motor.RIGHT,speed_m,FORWARD)
+    '''if mira_las_paredes()[3] == BLACK:
+        motor_run(Motor.RIGHT,speed_m,BACKWARD)
+        motor_run(Motor.LEFT,speed_m, FORWARD)'''
+    if mira_las_paredes()[2] == BLACK:
+        motor_run(Motor.RIGHT,speed,BACKWARD)
+        motor_run(Motor.LEFT,speed, FORWARD)
+    elif mira_las_paredes()[1] == BLACK:
+        motor_run(Motor.RIGHT,speed_ss,BACKWARD)
         motor_run(Motor.LEFT,speed_ff,FORWARD)
-    elif mira_las_paredes()[1] == WHITE:
-        motor_run(Motor.LEFT,speed_ff,BACKWARD)
-        motor_run(Motor.RIGHT,speed_ff,FORWARD)
-    
-a = 1.7
+    elif mira_las_paredes()[0] == WHITE:
+        motor_run(Motor.LEFT,speed_m,BACKWARD)
+        motor_run(Motor.RIGHT,speed_m,FORWARD)
+    elif mira_las_paredes()[0] == BLACK:
+        motor_run(Motor.LEFT,speed,FORWARD)
+        motor_run(Motor.RIGHT,speed_ss,FORWARD)
+
+a = 1
 
 led_rgb(rgb(255,255,255))
 
@@ -55,4 +62,4 @@ speed_ss:int = int(a*20)
 
 while True:
     direction_en_espagnol()
-
+    sleep(1)
